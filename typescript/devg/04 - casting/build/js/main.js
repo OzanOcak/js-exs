@@ -10,7 +10,7 @@ const addOrConcat = (a, b, c) => {
     return '' + a + b;
 };
 let val = addOrConcat(2, 2, 'add');
-let val2 = addOrConcat('2', '2', addOrConcat);
+let val2 = addOrConcat(2, 2, addOrConcat);
 10;
 // The DOM 
 const img = document.querySelector('img');

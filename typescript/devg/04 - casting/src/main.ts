@@ -17,7 +17,7 @@ const addOrConcat= (a:number,b:number,c: 'add' | 'concat'): number |string =>{
 
 let val: number =addOrConcat(2,2,'add') as number
 
-let val2:string = addOrConcat('2','2',addOrConcat) as string
+let val2:string = addOrConcat(2,2,addOrConcat) as string
 
 (10 as unknown)as string
 
