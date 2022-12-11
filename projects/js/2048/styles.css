@@ -1,1 +1,62 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+:root{
+    --number-grid:4;
+    --cell-size:10vw;
+    --cell-gap:1vw;
+}
+body{
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    font-size: 3vw;
+    margin:0;
+}
+#game-board{
+    display: grid;
+    grid-template-columns: repeat(var(--number-grid),var(--cell-size));
+    grid-template-rows: repeat(var(--number-grid),var(--cell-size));
+    background-color: #ccc;
+    gap:var(--cell-gap);
+    padding:2vmin;
+    position:relative;
+    border-radius: .5vw;
+}
+.cell{
+    background-color: #AAA;
+    border-radius: .5vw;
+}
+.tile{
+    --x:3;
+    --y:2;
+    --background-lightness: 80%;
+    --text-lightness: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    height: var(--cell-size);
+    width: var(--cell-size);
+    border-radius: .5vw;
+    position: absolute;
+    top:calc( var(--y) * ( var(--cell-size) +  var(--cell-gap) ) + 1.5 * var(--cell-gap) );
+    left:calc( var(--x) * ( var(--cell-size) +  var(--cell-gap) ) + 1.5 * var(--cell-gap) );
+    font-weight:bold;
+    background-color: hsl(200,50%,var(--background-lightness));
+    color:hsl(200, 25%, var(--text-lightness));
+    animation: show 200ms ease-in-out;
+    transition: 100ms ease-in-out;
+}
+
+@keyframes show {
+    0% {
+        opacity: .5;
+        transform: scale(0);
+    }
+    
+}
 
