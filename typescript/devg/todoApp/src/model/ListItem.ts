@@ -23,7 +23,7 @@ export default class ListItem implements Item{
     set item(item:string){
          this._item=item
     }
-    get checked(){
+    get checked():boolean{
         return this._checked
     }
     set checked(checked:boolean){
