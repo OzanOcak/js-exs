@@ -64,3 +64,35 @@ const Cart = () => {
             <div key={product.id} className="row">
   )
 ```
+
+---
+
+### redux-thunk
+
+```console
+npx json-server './src/data/productList.json'
+```
+
+```js
+export const fetchAllProducts = createAsyncThunk(
+  "fetch-all-products",
+  async (apiUrl) => {
+    const response = await fetch(apiUrl);
+    // console.log(await response.json())
+    return response.json();
+  }
+);
+```
+
+then add it reducer in store.js and finally we can fetch url by calling function on home.js
+
+Now we can directly select the state
+
+```js
+const Home = () => {
+  const state = useSelector((state) => state);
+  const { cart, products } = state;
+  ...
+  {!cart.cartProductIds.includes(product.id) && (
+        <button
+```
