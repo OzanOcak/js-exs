@@ -32,6 +32,8 @@ const store = configureStore({
 });
 ```
 
+### useDispatch :
+
 Once our reducer and functionalities,we can import functions as acrions to components and dispatch them by wrapping them with higher order function
 
 ```js
@@ -43,5 +45,22 @@ const Home = () => {
     ...
     <button className="btn btn-primary" onClick={() => dispatch(addToCart(product.id))}>
     ...
+  )
+```
+
+---
+
+### useSelector :
+
+we can select data from state to query
+
+```js
+const Cart = () => {
+  const { cartProductIds } = useSelector((state) => state.cart)
+  const cartProductData = productList.products.filter((product) => cartProductIds.includes(product.id))
+  ...
+  return(
+    {cartProductData.map((product) => (
+            <div key={product.id} className="row">
   )
 ```
